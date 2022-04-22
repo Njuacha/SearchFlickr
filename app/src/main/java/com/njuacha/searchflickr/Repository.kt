@@ -5,6 +5,7 @@ import com.njuacha.searchflickr.rest.ApiClient
 import com.njuacha.searchflickr.rest.ApiInterface
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import java.io.IOException
 
 class Repository {
     companion object {
@@ -14,8 +15,14 @@ class Repository {
             val apiService: ApiInterface? = ApiClient.getClient()?.create(ApiInterface::class.java)
             // move execution of the coroutine to the io dispatcher
             return withContext(Dispatchers.IO) {
-                val picturesResponse = apiService?.getSearchPictures(searchText)?.execute()
-                picturesResponse?.body()?.photos
+                try {
+                    val searchQueryMap = ApiClient.getSearchQueryMap(searchText)
+                    val picturesResponse = apiService?.getSearchPictures(searchQueryMap)?.execute()
+                    picturesResponse?.body()?.photos?.photos
+                } catch (e: IOException) {
+                    e.printStackTrace()
+                    emptyList<Photo>()
+                }
             }
         }
     }
