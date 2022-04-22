@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.njuacha.searchflickr.SearchFragment"
+        android:name="com.njuacha.searchflickr.fragment.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
     <fragment
         android:id="@+id/searchHistoryFragment"
-        android:name="com.njuacha.searchflickr.SearchHistoryFragment"
+        android:name="com.njuacha.searchflickr.fragment.SearchHistoryFragment"
         android:label="fragment_search_history"
         tools:layout="@layout/fragment_search_history" />
 </navigation>
