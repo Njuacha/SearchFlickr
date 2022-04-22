@@ -29,7 +29,7 @@ class ApiClient {
         )
 
         fun getSearchQueryMap(searchText: String): Map<String, String> {
-            queryMap.put("text", searchText)
+            queryMap["text"] = searchText
             return queryMap
         }
 
