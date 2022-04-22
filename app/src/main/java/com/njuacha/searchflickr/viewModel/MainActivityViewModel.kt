@@ -11,6 +11,7 @@ import kotlinx.coroutines.launch
 class MainActivityViewModel: ViewModel() {
 
     val searchPhotosLiveData = MutableLiveData<List<Photo>>()
+    val searchHistory = mutableListOf<String>()
 
     fun getPhotosFromSearch(searchText: String): LiveData<List<Photo>> {
         // create a new coroutine on the ui thread

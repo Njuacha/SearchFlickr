@@ -9,10 +9,15 @@
         android:id="@+id/searchFragment"
         android:name="com.njuacha.searchflickr.fragment.SearchFragment"
         android:label="fragment_search"
-        tools:layout="@layout/fragment_search" />
-    <fragment
-        android:id="@+id/searchHistoryFragment"
-        android:name="com.njuacha.searchflickr.fragment.SearchHistoryFragment"
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/action_searchFragment_to_searchHistoryDialog"
+            app:destination="@id/searchHistoryDialog" />
+    </fragment>
+    <dialog
+        android:id="@+id/searchHistoryDialog"
+        android:name="com.njuacha.searchflickr.dialog.SearchHistoryDialog"
         android:label="fragment_search_history"
         tools:layout="@layout/fragment_search_history" />
+
 </navigation>

@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.njuacha.searchflickr.R
 import com.njuacha.searchflickr.adapter.SearchAdapter
 import com.njuacha.searchflickr.databinding.FragmentSearchBinding
@@ -44,6 +45,9 @@ class SearchFragment : Fragment() {
             adapter.setPhotos(it)
             binding.infoTv.isVisible = false
         }
+
+        // set up search history menu item click
+        setUpSearchHistoryClick()
         return binding.root
     }
 
@@ -76,7 +80,16 @@ class SearchFragment : Fragment() {
                     binding.infoTv.isVisible = true
                 }
             }
+
+            // add searchText to search history
+            viewModel.searchHistory.add(searchText)
         }
     }
 
+    private fun setUpSearchHistoryClick() {
+        binding.toolBar.menu.findItem(R.id.search_history).setOnMenuItemClickListener {
+            findNavController().navigate(SearchFragmentDirections.actionSearchFragmentToSearchHistoryDialog())
+            false
+        }
+    }
 }
