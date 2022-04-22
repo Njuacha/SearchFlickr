@@ -9,6 +9,8 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         android:contentDescription="@string/a_search_image_result"
+        android:layout_marginRight="@dimen/common_margin"
+        android:layout_marginBottom="@dimen/common_margin"
         android:src="@drawable/ic_launcher_background"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
