@@ -30,7 +30,7 @@ class SearchAdapter : RecyclerView.Adapter<SearchAdapter.ViewHolder>() {
 
     override fun getItemCount() = photos.size
 
-    class ViewHolder(val searchItemBinding: SearchItemBinding) :
+    class ViewHolder(private val searchItemBinding: SearchItemBinding) :
         RecyclerView.ViewHolder(searchItemBinding.root) {
 
         fun bind(photo: Photo) {

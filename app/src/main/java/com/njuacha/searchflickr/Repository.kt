@@ -10,6 +10,7 @@ import java.io.IOException
 class Repository {
     companion object {
 
+
         // function to get the pictures from the flickr api;
         suspend fun getSearchPicturesFromApi(searchText: String): List<Photo>? {
             val apiService: ApiInterface? = ApiClient.getClient()?.create(ApiInterface::class.java)

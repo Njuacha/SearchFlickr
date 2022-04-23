@@ -8,6 +8,7 @@ class ApiClient {
 
     companion object {
         private val BASE_URL = "https://api.flickr.com/services/"
+
         private var retrofit: Retrofit? = null
 
         fun getClient(): Retrofit? {
@@ -22,11 +23,15 @@ class ApiClient {
 
         var queryMap = mutableMapOf(
             Pair("method", "flickr.photos.search"),
-            Pair("api_key", "37ad288835e4c64fc0cb8af3f3a1a65d"),
+            Pair("api_key", ""),
             Pair("format", "json"),
             Pair("nojsoncallback", "1"),
             Pair("safe_search", "1")
         )
+
+        fun setApiKey(apiKey: String) {
+            queryMap["api_key"] = apiKey
+        }
 
         fun getSearchQueryMap(searchText: String): Map<String, String> {
             queryMap["text"] = searchText
