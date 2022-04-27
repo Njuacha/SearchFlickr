@@ -19,7 +19,7 @@ class SearchFragment : Fragment() {
     private var _binding: FragmentSearchBinding? = null
     private val binding get() = _binding!!
     private val viewModel: MainActivityViewModel by activityViewModels()
-    lateinit var adapter: SearchAdapter
+    private lateinit var adapter: SearchAdapter
 
 
     override fun onCreateView(
