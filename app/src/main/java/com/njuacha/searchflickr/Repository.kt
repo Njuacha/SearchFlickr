@@ -7,10 +7,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.IOException
 
-class Repository {
-    companion object {
-
-
+object Repository {
         // function to get the pictures from the flickr api;
         suspend fun getSearchPicturesFromApi(searchText: String): List<Photo>? {
             val apiService: ApiInterface? = ApiClient.getClient()?.create(ApiInterface::class.java)
@@ -26,5 +23,4 @@ class Repository {
                 }
             }
         }
-    }
 }
