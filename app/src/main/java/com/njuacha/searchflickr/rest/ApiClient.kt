@@ -32,5 +32,4 @@ object ApiClient {
         return queryMap
     }
 
-
 }

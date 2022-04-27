@@ -8,5 +8,5 @@ import retrofit2.http.QueryMap
 interface ApiInterface {
 
     @GET("rest/")
-    fun getSearchPictures(@QueryMap params: Map<String, String>): Call<PhotosResponse>
+    suspend fun getSearchPictures(@QueryMap params: Map<String, String>): PhotosResponse
 }
