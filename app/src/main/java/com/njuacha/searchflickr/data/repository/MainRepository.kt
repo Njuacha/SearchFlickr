@@ -1,13 +1,13 @@
-package com.njuacha.searchflickr
+package com.njuacha.searchflickr.data.repository
 
-import com.njuacha.searchflickr.model.Photo
-import com.njuacha.searchflickr.rest.ApiClient
-import com.njuacha.searchflickr.rest.ApiInterface
+import com.njuacha.searchflickr.data.model.Photo
+import com.njuacha.searchflickr.data.rest.ApiClient
+import com.njuacha.searchflickr.data.rest.ApiInterface
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.io.IOException
 
-object Repository {
+object MainRepository {
         // function to get the pictures from the flickr api;
         suspend fun getSearchPicturesFromApi(searchText: String): List<Photo>? {
             val apiService: ApiInterface? = ApiClient.getClient().create(ApiInterface::class.java)

@@ -1,7 +1,6 @@
-package com.njuacha.searchflickr.rest
+package com.njuacha.searchflickr.data.rest
 
-import com.njuacha.searchflickr.model.PhotosResponse
-import retrofit2.Call
+import com.njuacha.searchflickr.data.model.PhotosResponse
 import retrofit2.http.GET
 import retrofit2.http.QueryMap
 

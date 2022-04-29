@@ -1,4 +1,4 @@
-package com.njuacha.searchflickr.fragment
+package com.njuacha.searchflickr.ui.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -10,9 +10,9 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.njuacha.searchflickr.R
-import com.njuacha.searchflickr.adapter.SearchAdapter
+import com.njuacha.searchflickr.ui.adapter.SearchAdapter
 import com.njuacha.searchflickr.databinding.FragmentSearchBinding
-import com.njuacha.searchflickr.viewModel.MainActivityViewModel
+import com.njuacha.searchflickr.ui.viewModel.MainActivityViewModel
 
 class SearchFragment : Fragment() {
 

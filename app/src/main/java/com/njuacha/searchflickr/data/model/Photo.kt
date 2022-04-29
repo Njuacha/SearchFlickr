@@ -1,4 +1,4 @@
-package com.njuacha.searchflickr.model
+package com.njuacha.searchflickr.data.model
 
 import com.google.gson.annotations.SerializedName
 

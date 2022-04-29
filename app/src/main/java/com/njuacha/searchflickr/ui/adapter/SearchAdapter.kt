@@ -1,12 +1,11 @@
-package com.njuacha.searchflickr.adapter
+package com.njuacha.searchflickr.ui.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.njuacha.searchflickr.R
 import com.njuacha.searchflickr.databinding.SearchItemBinding
-import com.njuacha.searchflickr.model.Photo
+import com.njuacha.searchflickr.data.model.Photo
 import com.squareup.picasso.Picasso
 
 class SearchAdapter : RecyclerView.Adapter<SearchAdapter.ViewHolder>() {

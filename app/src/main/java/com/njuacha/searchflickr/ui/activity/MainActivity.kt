@@ -1,12 +1,11 @@
-package com.njuacha.searchflickr.activity
+package com.njuacha.searchflickr.ui.activity
 
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
 import com.njuacha.searchflickr.R
-import com.njuacha.searchflickr.rest.ApiClient
+import com.njuacha.searchflickr.data.rest.ApiClient
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

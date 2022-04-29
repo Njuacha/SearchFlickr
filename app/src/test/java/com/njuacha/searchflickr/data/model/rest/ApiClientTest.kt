@@ -1,5 +1,6 @@
-package com.njuacha.searchflickr.rest
+package com.njuacha.searchflickr.data.model.rest
 
+import com.njuacha.searchflickr.data.rest.ApiClient
 import org.junit.Assert.*
 import org.junit.Test
 
