@@ -5,8 +5,10 @@ import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.njuacha.searchflickr.R
-import com.njuacha.searchflickr.data.rest.ApiClient
+import com.njuacha.searchflickr.data.rest.ApiUtil
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,6 +20,6 @@ class MainActivity : AppCompatActivity() {
 
         val apiKey = value.toString()
         // set the api_key
-        ApiClient.setApiKey(apiKey)
+        ApiUtil.setApiKey(apiKey)
     }
 }

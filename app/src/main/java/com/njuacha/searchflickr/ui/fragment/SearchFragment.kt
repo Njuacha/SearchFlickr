@@ -13,7 +13,9 @@ import com.njuacha.searchflickr.R
 import com.njuacha.searchflickr.ui.adapter.SearchAdapter
 import com.njuacha.searchflickr.databinding.FragmentSearchBinding
 import com.njuacha.searchflickr.ui.viewModel.MainActivityViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SearchFragment : Fragment() {
 
     private var _binding: FragmentSearchBinding? = null

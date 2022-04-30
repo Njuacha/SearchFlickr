@@ -1,10 +1,10 @@
 package com.njuacha.searchflickr.data.model.rest
 
-import com.njuacha.searchflickr.data.rest.ApiClient
+import com.njuacha.searchflickr.data.rest.ApiUtil
 import org.junit.Assert.*
 import org.junit.Test
 
-class ApiClientTest {
+class ApiUtilTest {
 
     @Test
     fun getSearchQueryMap_ReturnsCorrectQuery() {
@@ -16,7 +16,7 @@ class ApiClientTest {
             Pair("safe_search", "1"),
             Pair("text", "offenburg")
         )
-        val actualSearchQueryMap = ApiClient.getSearchQueryMap("offenburg")
+        val actualSearchQueryMap = ApiUtil.getSearchQueryMap("offenburg")
         assertEquals(expectedSearchQueryMap, actualSearchQueryMap)
     }
 }

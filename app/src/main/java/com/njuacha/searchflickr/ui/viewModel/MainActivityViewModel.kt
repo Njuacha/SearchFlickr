@@ -6,9 +6,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.njuacha.searchflickr.data.repository.MainRepository
 import com.njuacha.searchflickr.data.model.Photo
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class MainActivityViewModel: ViewModel() {
+@HiltViewModel
+class MainActivityViewModel @Inject constructor(private val mainRepository: MainRepository): ViewModel() {
 
     val searchPhotosLiveData = MutableLiveData<List<Photo>>()
     val searchHistory = mutableListOf<String>()
@@ -17,7 +20,7 @@ class MainActivityViewModel: ViewModel() {
         // create a new coroutine on the ui thread
         viewModelScope.launch {
             // make the call to get suspend function that gets pictures from flickr api
-            MainRepository.getSearchPicturesFromApi(searchText)?.let { photosList ->
+            mainRepository.getSearchPicturesFromApi(searchText).let { photosList ->
                 // the photosList is returned back to the ui thread so we call setValue on liveData
                 searchPhotosLiveData.value = photosList
             }
