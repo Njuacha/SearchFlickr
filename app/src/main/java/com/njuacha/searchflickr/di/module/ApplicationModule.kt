@@ -1,9 +1,9 @@
 package com.njuacha.searchflickr.di.module
 
 import com.njuacha.searchflickr.BuildConfig
-import com.njuacha.searchflickr.data.rest.ApiHelper
-import com.njuacha.searchflickr.data.rest.ApiHelperImpl
-import com.njuacha.searchflickr.data.rest.ApiService
+import com.njuacha.searchflickr.data.api.ApiHelper
+import com.njuacha.searchflickr.data.api.ApiHelperImpl
+import com.njuacha.searchflickr.data.api.ApiService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

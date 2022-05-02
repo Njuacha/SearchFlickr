@@ -1,7 +1,4 @@
-package com.njuacha.searchflickr.data.rest
-
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+package com.njuacha.searchflickr.data.api
 
 
 object ApiUtil {
