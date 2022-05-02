@@ -13,6 +13,7 @@ import com.njuacha.searchflickr.R
 import com.njuacha.searchflickr.ui.adapter.SearchAdapter
 import com.njuacha.searchflickr.databinding.FragmentSearchBinding
 import com.njuacha.searchflickr.ui.viewModel.MainActivityViewModel
+import com.njuacha.searchflickr.utils.Status
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -44,8 +45,10 @@ class SearchFragment : Fragment() {
 
         // if photo were previously loaded then show them
         viewModel.searchPhotosLiveData.value?.let {
-            adapter.setPhotos(it)
-            binding.infoTv.isVisible = false
+            if (it.status == Status.SUCCESS) {
+                it.data?.let { it1 -> adapter.setPhotos(it1) }
+                binding.infoTv.isVisible = false
+            }
         }
 
         // set up search history menu item click
@@ -61,25 +64,26 @@ class SearchFragment : Fragment() {
                 Toast.makeText(context, getString(R.string.search_input_hint), Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            // show progress bar and hide welcome text
-            binding.infoTv.isVisible = false
-            binding.progressBar.isVisible = true
-
             // make call to search photo based on text
-            viewModel.getPhotosFromSearch(searchText).observe(viewLifecycleOwner) { photosList ->
-                // when the photos are loaded, hide the progress bar
-                binding.progressBar.isVisible = false
-                if (!photosList.isNullOrEmpty()) {
-                    adapter.setPhotos(photosList)
-                } else {
-                    // inform the user that there are no images for inputed text
-                    Toast.makeText(
-                        context,
-                        getString(R.string.msg_no_photos),
-                        Toast.LENGTH_LONG
-                    ).show()
-                    // And then show back welcome text
-                    binding.infoTv.isVisible = true
+            viewModel.getPhotosFromSearch(searchText).observe(viewLifecycleOwner) { photosResource ->
+                when(photosResource.status) {
+                    Status.SUCCESS -> {
+                        photosResource.data?.let { it1 -> adapter.setPhotos(it1) }
+                        // when the photos are loaded, hide the progress bar
+                        binding.progressBar.isVisible = false
+                    }
+                    Status.LOADING -> {
+                        // show progress bar and hide welcome text
+                        binding.infoTv.isVisible = false
+                        binding.progressBar.isVisible = true
+                    }
+                    Status.ERROR -> {
+                        // hide progress bar
+                        binding.progressBar.isVisible = false
+                        Toast.makeText(context,  photosResource.message, Toast.LENGTH_LONG).show()
+                        // And then show back welcome text
+                        binding.infoTv.isVisible = true
+                    }
                 }
             }
 

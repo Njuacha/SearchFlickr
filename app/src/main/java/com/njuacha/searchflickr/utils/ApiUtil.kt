@@ -1,4 +1,4 @@
-package com.njuacha.searchflickr.data.api
+package com.njuacha.searchflickr.utils
 
 
 object ApiUtil {

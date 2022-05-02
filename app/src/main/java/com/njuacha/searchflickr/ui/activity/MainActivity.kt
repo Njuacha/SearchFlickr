@@ -5,7 +5,7 @@ import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.njuacha.searchflickr.R
-import com.njuacha.searchflickr.data.api.ApiUtil
+import com.njuacha.searchflickr.utils.ApiUtil
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

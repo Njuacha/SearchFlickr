@@ -1,7 +1,7 @@
 package com.njuacha.searchflickr.data.repository
 
 import com.njuacha.searchflickr.data.model.Photo
-import com.njuacha.searchflickr.data.api.ApiUtil
+import com.njuacha.searchflickr.utils.ApiUtil
 import com.njuacha.searchflickr.data.api.ApiHelper
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -17,7 +17,6 @@ class MainRepository @Inject constructor(private val apiHelper: ApiHelper) {
         return withContext(Dispatchers.IO) {
             try {
                 val searchQueryMap = ApiUtil.getSearchQueryMap(searchText)
-
                 val picturesResponse = apiHelper.getSearchPictures(searchQueryMap).execute()
                 picturesResponse?.body()?.photos?.photos
             } catch (e: IOException) {
