@@ -30,9 +30,15 @@ class MainActivityViewModel @Inject constructor(
             _searchPhotosLiveData.value = Resource.loading(null)
             // make the call to get suspend function that gets pictures from flickr api
             if (networkHelper.isNetworkConnected()) {
-                mainRepository.getSearchPicturesFromApi(searchText).let { photosList ->
+                mainRepository.getSearchPicturesFromApi(searchText).let {
                     // the photosList is returned back to the ui thread so we call setValue on liveData
-                    _searchPhotosLiveData.value = Resource.success(photosList)
+                    _searchPhotosLiveData.value = if (it == null) {
+                        Resource.error("Unexpected problem with the server", null)
+                    } else if (it.isSuccessful) {
+                        Resource.success(it.body().photos.photos)
+                    } else {
+                        Resource.error(it.errorBody().toString(), null)
+                    }
                 }
 
             } else {
