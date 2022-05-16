@@ -8,7 +8,7 @@ import com.njuacha.searchflickr.R
 import com.njuacha.searchflickr.utils.ApiUtil
 import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
+//@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

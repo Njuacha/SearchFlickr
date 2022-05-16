@@ -3,7 +3,7 @@
     package="com.njuacha.searchflickr">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".App"
@@ -14,19 +14,23 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SearchFlickr">
         <activity
-            android:name="com.njuacha.searchflickr.ui.activity.MainActivity"
-            android:exported="true"
-            android:theme="@style/Theme.SearchFlickr.NoActionBar">
+            android:name=".ui.activity.MainActivityCompose"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.activity.MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.SearchFlickr.NoActionBar">
+        </activity>
 
         <meta-data
             android:name="flickr_api_key"
-            android:value="${Flikr_API_KEY}"/>
+            android:value="${Flikr_API_KEY}" />
     </application>
 
 </manifest>
